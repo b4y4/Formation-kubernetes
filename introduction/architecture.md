@@ -15,6 +15,10 @@ Vous avez besoin d'interagir avec votre cluster Kubernetes ? C'est à cela que s
 
 * **kube-scheduler**
 Votre cluster est-il en bonne santé ? Est-il possible d'intégrer de nouveaux conteneurs si besoin ? Ce sont les questions auxquelles doit répondre le planificateur Kubernetes.
-
 En plus de l'intégrité du cluster, le planificateur doit prendre en compte les besoins en ressources (par exemple, processeur ou mémoire) d'un pod. Il planifie ensuite l'attribution du pod au nœud de calcul adéquat.
 
+* **kube-controller-manager**
+Les contrôleurs assurent l'exécution du cluster, tandis que le gestionnaire de contrôleur Kubernetes regroupe plusieurs fonctions de contrôleur. Un contrôleur se réfère au planificateur pour s'assurer qu'un nombre suffisant de pods est exécuté. Si un pod est défaillant, un autre contrôleur le remarque et réagit. Un contrôleur connecte les services aux pods afin que les demandes soient acheminées jusqu'aux points de terminaison appropriés. D'autres contrôleurs permettent de créer des comptes et des jetons d'accès aux API.
+
+* **etcd**
+« etcd » est une base de données clé-valeur qui comprend les données de configuration et les informations sur l'état du cluster. Distribuée et résistante aux pannes, la base de données etcd constitue la référence unique concernant votre cluster.
