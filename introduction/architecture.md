@@ -3,7 +3,7 @@ Kubernetes est un projet Open Source créé par Google en 2015. Il permet d’au
 
 # Composants de K8S
 Le terme « cluster » désigne un déploiement fonctionnel de Kubernetes. Un cluster Kubernetes comprend deux principaux composants : **le control plan** et **les workers nodes**.
-![](./images/arch.png)
+![](../images/arch.png)
 
 control plan      |    worker nodes
 -----------------------------------------------------
