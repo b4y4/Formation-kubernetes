@@ -48,4 +48,4 @@ kubectl scale --replicas=6 replicatset frontend
 kubectl delete replicaset frontend
 ```
 
-Next: [Deployment](../objects/deployement.md)
+Next: [Deployment](../objects/Deployement.md)
