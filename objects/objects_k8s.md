@@ -8,3 +8,9 @@
 
 
 * les conteneurs du mème pod partage le meme reseau
+
+
+
+'''
+`kubectl run nginx --image nginx
+'''
