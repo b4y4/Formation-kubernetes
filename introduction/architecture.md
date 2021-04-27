@@ -19,11 +19,9 @@ Orcheste toutes les opérations au sein du cluster et expose une API RESTE pour 
 Composant sur le master qui surveille les pods nouvellement créés qui ne sont pas assignés à un nœud et sélectionne un nœud sur lequel ils vont s'exécuter.
 
 * **kube-controller-manager**
-
 Composant du master qui exécute les contrôleurs.
 Logiquement, chaque contrôleur est un processus à part mais, pour réduire la complexité, les contrôleurs sont tous compilés dans un seul binaire et s'exécutent dans un seul processus.
 Ces contrôleurs incluent :
-
 ** Node Controller : Responsable de détecter et apporter une réponse lorsqu'un nœud tombe en panne.
 ** Replication Controller : Responsable de maintenir le bon nombre de pods pour chaque objet ReplicationController dans le système.
 ** Endpoints Controller : Remplit les objets Endpoints (c'est-à-dire joint les Services et Pods).
