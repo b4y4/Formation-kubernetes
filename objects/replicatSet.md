@@ -4,7 +4,7 @@ Un ReplicaSet (ensemble de réplicas en français) a pour but de maintenir un en
 Un ReplicaSet est défini avec des champs, incluant un selecteur qui spécifie comment identifier les Pods qu'il peut posséder, un nombre de replicas indiquant le nombre de Pods qu'il doit maintenir et un modèle de Pod spécifiant les données que les nouveaux Pods que le replicatSet va créer jusqu'au nombre de replicas demandé.
 
 
-## replicats-demoet.yaml
+## replicatset-demo.yaml
 
 ```yaml
 apiVersion: apps/v1

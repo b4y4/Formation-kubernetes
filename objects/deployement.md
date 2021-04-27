@@ -1,33 +1,32 @@
-## ReplicatSet
-Un ReplicaSet (ensemble de réplicas en français) a pour but de maintenir un ensemble stable de Pods à un moment donné. Cet objet est souvent utilisé pour garantir la disponibilité d'un certain nombre identique de Pods.
+## Deployement
+Un Deployment (déploiement en français) fournit des mises à jour déclaratives pour Pods et ReplicaSets.
 
-Un ReplicaSet est défini avec des champs, incluant un selecteur qui spécifie comment identifier les Pods qu'il peut posséder, un nombre de replicas indiquant le nombre de Pods qu'il doit maintenir et un modèle de Pod spécifiant les données que les nouveaux Pods que le replicatSet va créer jusqu'au nombre de replicas demandé.
+Vous décrivez un état désiré dans un déploiement et le controlleur déploiement change l'état réel à l'état souhaité à un rythme contrôlé. Vous pouvez définir des Deployments pour créer de nouveaux ReplicaSets, ou pour supprimer des déploiements existants et adopter toutes leurs ressources avec de nouveaux déploiements.
 
-
-## replicats-demoet.yaml
+## deployement-demo.yaml
 
 ```yaml
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: frontend
+  name: nginx-deployment
   labels:
-    app: guestbook
-    tier: frontend
+    app: nginx
 spec:
   replicas: 3
   selector:
     matchLabels:
-      type: front-end
+      app: nginx
   template:
     metadata:
       labels:
-        tier: frontend
+        app: nginx
     spec:
       containers:
-      - name: php-redis
-        image: gcr.io/google_samples/gb-frontend:v3
-
+      - name: nginx
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 80
 ```
 
 ```
@@ -48,4 +47,4 @@ kubectl scale --replicas=6 replicatset frontend
 kubectl delete replicaset frontend
 ```
 
-Next: [Deployment](../objects/Deployement.md)
+Next: [Deployment](../objects/namespace.md)
