@@ -58,3 +58,5 @@ kubectl apply -f pod.yaml
 ```
 kubectl describe pod pod-demo
 ```
+
+Next: [ReplicatSets](../objects/replicatSet.md)
