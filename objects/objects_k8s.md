@@ -12,5 +12,10 @@
 
 
 ```
-`kubectl run nginx --image nginx
+kubectl run nginx --image nginx
+
+kubectl get pods [-o wide|yaml|json]
 ```
+
+
+
