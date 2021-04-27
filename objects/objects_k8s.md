@@ -54,3 +54,7 @@ spec:
 kubectl create -f pod.yaml
 kubectl apply -f pod.yaml
 ```
+
+```
+kubectl describe pod pod-demo
+```
