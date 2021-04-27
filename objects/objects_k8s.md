@@ -41,7 +41,7 @@ apiVersion: v1			# String
 kind: Pod			# String		
 metadata:                       # Dictionnaire 
   name: pod-demo
-  labeles:
+  labels:
     app: myapp
     type: front-end
 spec:
@@ -52,4 +52,5 @@ spec:
 
 ```
 kubectl create -f pod.yaml
+kubectl apply -f pod.yaml
 ```
