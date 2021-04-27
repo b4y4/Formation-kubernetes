@@ -1,36 +1,47 @@
 ## Introduction
-* Kubernetes est un projet Open Source créé par Google en 2015. 
-* Permet d'automatiser le déploiement et la gestion d'applications multi-container et de deployer autant d'instance application que nécissaire (Replicat). 
-* Un système permettant d'exécuter et de coordonner des applications containerisées sur un cluster de machines. en utilisant des méthodes de prédictibilité, de scalabilité et de haute disponibilité.
- 
+Kubernetes est un système open source permettant de gérer des applications conteneurisées sur plusieurs hôtes. Il fournit des mécanismes de base pour le déploiement, la maintenance et la mise à l'échelle des applications. 
 
 ## Architecture de kubernetes
-Le terme « cluster » désigne un déploiement fonctionnel de Kubernetes. Un cluster Kubernetes comprend deux principaux composants : **le control plan** et **les workers nodes**.
+* **Control plane "Master Nodes"**: gestion, planification, ordonnencement et controle des workers nodes.
+* **Workers nodes** un ensemble de noeuds qui peuvent être virtuels ou physiques qui hébergent des applications sous forme de conteneurs.
 ![](../images/arch.png)
 
+
 ### Control plan
-Il contient les composants Kubernetes qui contrôlent le cluster, ainsi que des données sur l'état et la configuration du cluster. Ces principaux composants de Kubernetes s'assurent que suffisamment de conteneurs peuvent fonctionner avec les ressources nécessaires. 
+Il contient les composants Kubernetes qui **contrôlent** le cluster, chargés de surveiller et de gérer les workers nodes . 
 
-
-
-Le plan de contrôle est en contact permanent avec les workers nodes. Vous avez configuré votre cluster pour qu'il fonctionne d'une certaine manière. Le plan de contrôle s'assure que votre configuration est respectée.
+Le plan de contrôle est en contact permanent avec les workers nodes. Si le cluster est configuré pour qu'il fonctionne d'une certaine manière. Le plan de contrôle s'assure que cette configuration est respectée.
 
 * **kube-apiserver**
-Vous avez besoin d'interagir avec votre cluster Kubernetes ? C'est à cela que sert l'API. L'API de Kubernetes est la partie frontale du plan de contrôle. Elle prend en charge les demandes internes et externes. Le serveur d'API détermine si une demande est valide ou non et la traite, le cas échéant. Vous pouvez accéder à l'API avec des appels REST, à l'aide de l'interface en ligne de commande kubectl ou d'autres outils en ligne de commande tels que kubeadm.
+Orcheste toutes les opérations au sein du cluster et expose une API RESTE pour interagir avec le cluster.
 
 * **kube-scheduler**
-Votre cluster est-il en bonne santé ? Est-il possible d'intégrer de nouveaux conteneurs si besoin ? Ce sont les questions auxquelles doit répondre le planificateur Kubernetes.
-En plus de l'intégrité du cluster, le planificateur doit prendre en compte les besoins en ressources (par exemple, processeur ou mémoire) d'un pod. Il planifie ensuite l'attribution du pod au nœud de calcul adéquat.
+Composant sur le master qui surveille les pods nouvellement créés qui ne sont pas assignés à un nœud et sélectionne un nœud sur lequel ils vont s'exécuter.
 
 * **kube-controller-manager**
-Les contrôleurs assurent l'exécution du cluster, tandis que le gestionnaire de contrôleur Kubernetes regroupe plusieurs fonctions de contrôleur. Un contrôleur se réfère au planificateur pour s'assurer qu'un nombre suffisant de pods est exécuté. Si un pod est défaillant, un autre contrôleur le remarque et réagit. Un contrôleur connecte les services aux pods afin que les demandes soient acheminées jusqu'aux points de terminaison appropriés. D'autres contrôleurs permettent de créer des comptes et des jetons d'accès aux API.
 
+Composant du master qui exécute les contrôleurs.
+Logiquement, chaque contrôleur est un processus à part mais, pour réduire la complexité, les contrôleurs sont tous compilés dans un seul binaire et s'exécutent dans un seul processus.
+Ces contrôleurs incluent :
+
+** Node Controller : Responsable de détecter et apporter une réponse lorsqu'un nœud tombe en panne.
+** Replication Controller : Responsable de maintenir le bon nombre de pods pour chaque objet ReplicationController dans le système.
+** Endpoints Controller : Remplit les objets Endpoints (c'est-à-dire joint les Services et Pods).
+* Service Account & Token Controllers : Créent des comptes par défaut et des jetons d'accès à l'API pour les nouveaux namespaces.
 * **etcd**
-« etcd » est une base de données clé-valeur qui comprend les données de configuration et les informations sur l'état du cluster. Distribuée et résistante aux pannes, la base de données etcd constitue la référence unique concernant votre cluster.
+« etcd » est une base de données clé-valeur qui comprend les données de configuration et les informations sur l'état du cluster. Distribuée et résistante aux pannes, la base de données etcd constitue la référence unique concernant cluster.
 
 
 ### Worker nodes
 
+Pour que les workers nodes puissent faire tourner les conteneurs, il faut installer 
+* **Kublet**: 
+Un agent qui s'exécute sur chaque nœud du cluster. Il s'assure que les conteneurs fonctionnent dans un pod.
+* **kube-proxy**: 
+kube-proxy est un proxy réseau qui s'exécute sur chaque nœud du cluster et implémente une partie du concept Kubernetes de Service.
+kube-proxy maintient les règles réseau sur les nœuds. Ces règles réseau permettent une communication réseau vers les Pods depuis des sessions réseau à l'intérieur ou à l'extérieur du cluster.
 
-* **Kublet**
-* **kube-proxy**
+* **container Runtime**
+L'environnement d'exécution de conteneurs est le logiciel responsable de l'exécution des conteneurs.
+
+Kubernetes est compatible avec plusieurs environnements d'exécution de conteneur: Docker, containerd, cri-o, rktlet ainsi que toute implémentation de Kubernetes CRI (Container Runtime Interface).
