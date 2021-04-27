@@ -41,5 +41,7 @@ kube-proxy maintient les règles réseau sur les nœuds. Ces règles réseau per
 * **container Runtime**
 L'environnement d'exécution de conteneurs est le logiciel responsable de l'exécution des conteneurs.
 Kubernetes est compatible avec plusieurs environnements d'exécution de conteneur: Docker, containerd, cri-o, rktlet ainsi que toute implémentation de Kubernetes CRI (Container Runtime Interface).
+
 ![](../images/k-architecture.png)
+
 Next: [Objets kubernetes](../objects_k8s.md)
