@@ -1,0 +1,13 @@
+---
+apiVersion: v1                  # String
+kind: Pod                       # String
+metadata:                       # Dictionnaire
+  name: pod-demo
+  labeles:
+    app: myapp
+    type: front-end
+spec:
+  containers:                   # List/Array
+    - name:  nginx-container    # 1er element
+      image: nginx
+

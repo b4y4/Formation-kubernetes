@@ -16,16 +16,40 @@ kubectl run nginx --image nginx
 kubectl get pods [-o wide|yaml|json]
 ```
 
-## fichier Yaml
+## structure du fichier de manifeste YAML
 
 
 ```yaml
 ---
 apiVersion:
-kind
+kind:
 metadatas:
 
 
 spec:
 
+
+
+
+```
+
+## Pod.yaml
+
+```yaml
+---
+apiVersion: v1			# String
+kind: Pod			# String		
+metadata:                       # Dictionnaire 
+  name: pod-demo
+  labeles:
+    app: myapp
+    type: front-end
+spec:
+  containers:                   # List/Array
+    - name:  nginx-container    # 1er element
+      image: nginx
+```
+
+```
+kubectl create -f pod.yaml
 ```
