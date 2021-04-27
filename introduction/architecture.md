@@ -32,7 +32,6 @@ Ces contrôleurs incluent :
 
 ### Worker nodes
 
-Pour que les workers nodes puissent faire tourner les conteneurs, il faut installer 
 * **Kublet**: 
 Un agent qui s'exécute sur chaque nœud du cluster. Il s'assure que les conteneurs fonctionnent dans un pod.
 * **kube-proxy**: 
@@ -41,5 +40,4 @@ kube-proxy maintient les règles réseau sur les nœuds. Ces règles réseau per
 
 * **container Runtime**
 L'environnement d'exécution de conteneurs est le logiciel responsable de l'exécution des conteneurs.
-
 Kubernetes est compatible avec plusieurs environnements d'exécution de conteneur: Docker, containerd, cri-o, rktlet ainsi que toute implémentation de Kubernetes CRI (Container Runtime Interface).
