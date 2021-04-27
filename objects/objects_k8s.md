@@ -11,6 +11,6 @@
 
 
 
-'''
+```
 `kubectl run nginx --image nginx
-'''
+```
