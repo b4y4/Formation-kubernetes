@@ -32,7 +32,7 @@ Ces contrôleurs incluent :
 
 ### Worker nodes
 
-* **Kublet**: 
+* **Kubelet**: 
 Un agent qui s'exécute sur chaque nœud du cluster. Il s'assure que les conteneurs fonctionnent dans un pod.
 * **kube-proxy**: 
 kube-proxy est un proxy réseau qui s'exécute sur chaque nœud du cluster et implémente une partie du concept Kubernetes de Service.
