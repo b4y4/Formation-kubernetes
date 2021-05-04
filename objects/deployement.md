@@ -2,7 +2,9 @@
 Un Deployment (déploiement en français) fournit des mises à jour déclaratives pour Pods et ReplicaSets.
 
 ** Vous décrivez un état désiré dans un déploiement et le controlleur déploiement change l'état réel à l'état souhaité à un rythme contrôlé (progressivement). 
+
 ** Vous pouvez définir des Deployments pour créer de nouveaux ReplicaSets, ou pour supprimer des déploiements existants et adopter toutes leurs ressources avec de nouveaux déploiements.
+
 ** Premet le retour en arriere ROLLINBACK
 
 ## deployement-demo.yaml
