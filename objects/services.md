@@ -14,9 +14,7 @@ metadata:
   name: my-service
 spec:
   selector:
-    app: frontend
-  type: [NodePort]
-  ports:
+    type: frontend
   ...
 ```
 
@@ -25,7 +23,30 @@ spec:
 * **NodePort**: le service rend un POD interne accessible sur un port du nœud [30000-32767]
 
 ![](../images/Screenshot_20190722_110641.png)
+
+```yaml
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+spec:
+  type: NodePort
+  ports:
+    - targetPort: 80
+      port: 80
+      nodePort: 30080
+  selector:
+    name: myapp
+    type: frontend
+```
+
+```
+kubectl create -f service-demo.yaml
+```
+
 * **Loadbalancer** : il fournit un équilibreur de charge pour notre service dans les fournisseurs de cloud pris en charge.
+
 ![](../images/multiple-nodes.png)
 
 
