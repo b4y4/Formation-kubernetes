@@ -1,9 +1,7 @@
-## Namesapce
-* Kubernetes prend en charge plusieurs clusters virtuels sauvegardés par le même cluster physique. Ces clusters virtuels sont appelés namespaces.
-* un bon moyen pour diviser et limiter les ressources physiques du cluster entre plusieurs utilisateurs
-* Permet l'utilisation du même cluster pour des envirenemnt differents (DEV, PREPROD, PROD)
+## Service
+* Une manière abstraite d'exposer une application s'exécutant sur un ensemble de Pods en tant que service réseau.
 
-![](../images/namespace.png)
+![](../images/service.gif)
 
 
 chemin d'access ''database-sql.dev.svc.cluster.local'' -> pod-name.namespace.service.domain
@@ -68,4 +66,4 @@ spec:
 kubectl create -f compute-quota.yml
 ```
 
-Next: [Service](../objects/services.md)
+Next: [ReplicatSets](../objects/service.md)
