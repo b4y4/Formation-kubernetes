@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: compute-quota
+  namespace: dev
+spec:
+  hard:
+    pods: "10"
+    requests.cpu: "4"           # un pod ne peut pas demander plus de 4 CPU
+    requests.memory: 5Gi        # un pod ne peut pas demander plus de 5G de memoire
+    limits.cpu: "10"
+    limits.memory: 10Gi
