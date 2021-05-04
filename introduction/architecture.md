@@ -26,8 +26,7 @@ Ces contrôleurs incluent :
 	** Node Controller : Responsable de détecter et apporter une réponse lorsqu'un nœud tombe en panne.
 	** Replication Controller : Responsable de maintenir le bon nombre de pods pour chaque objet ReplicationController dans le système.
 	** Endpoints Controller : Remplit les objets Endpoints (c'est-à-dire joint les Services et Pods).
-
-* Service Account & Token Controllers : Créent des comptes par défaut et des jetons d'accès à l'API pour les nouveaux namespaces.
+	** Service Account & Token Controllers : Créent des comptes par défaut et des jetons d'accès à l'API pour les nouveaux namespaces.
 * **etcd**
 « etcd » est une base de données clé-valeur qui comprend les données de configuration et les informations sur l'état du cluster. Distribuée et résistante aux pannes, la base de données etcd constitue la référence unique concernant cluster.
 
