@@ -3,7 +3,7 @@
 * un bon moyen pour diviser et limiter les ressources physiques du cluster entre plusieurs utilisateurs
 * Permet l'utilisation du même cluster pour des envirenemnt differents (DEV, PREPROD, PROD)
 
-![namespace](../images/namespace.jpg)
+![namespace](/images/namespace.jpg)
 
 
 chemin d'access ''database-sql.dev.svc.cluster.local'' -> pod-name.namespace.service.domain
@@ -34,7 +34,7 @@ kubectl create -f pod.yml --namespace=dev
 ```yaml
 apiVersion: v1
 kind: Namespace
-metadata
+metadata:
   name: dev
 ```
 
