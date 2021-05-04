@@ -14,7 +14,7 @@ metadata:
   name: my-service
 spec:
   selector:
-    app: metrics
+    app: frontend
     department: engineering
   ports:
   ...
