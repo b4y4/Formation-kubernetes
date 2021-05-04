@@ -2,7 +2,7 @@
 * Une manière abstraite d'exposer une application s'exécutant sur un ensemble de Pods en tant que service réseau.
 * Un service identifie ses pods membres à l'aide d'un sélecteur. Pour qu'un pod soit membre du service, il doit comporter tous les libellés spécifiés dans le sélecteur.
 
-		![](../images/service.png)
+![](../images/service.png)
 
 
 
@@ -22,7 +22,7 @@ spec:
 ### types de services:
 * **ClusterIP**: le service crée une adresse IP virtuelle à l'intérieur du cluster pour permettre la communication entre différents services tels qu'un ensemble de serveurs frontaux à un ensemble de serveurs principaux.
 * **NodePort**: le service rend un POD interne accessible sur un port du nœud [30000-32767]
-              ![](../images/nodeport.png)
+![](../images/nodeport.png)
 * **Loadbalancer** : il fournit un équilibreur de charge pour notre service dans les fournisseurs de cloud pris en charge.
 
 
