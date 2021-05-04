@@ -36,7 +36,7 @@ Ces contrôleurs incluent :
 * **Kubelet**: 
 Un agent qui s'exécute sur chaque nœud du cluster. Il s'assure que les conteneurs fonctionnent dans un pod.
 * **kube-proxy**: 
-kube-proxy est un proxy réseau qui s'exécute sur chaque nœud du cluster et implémente une partie du concept Kubernetes de Service.
+kube-proxy est un proxy réseau qui s'exécute sur chaque nœud du cluster et implémente une partie du concept services de Kubernetes.
 kube-proxy maintient les règles réseau sur les nœuds. Ces règles réseau permettent une communication réseau vers les Pods depuis des sessions réseau à l'intérieur ou à l'extérieur du cluster.
 
 * **container Runtime**
