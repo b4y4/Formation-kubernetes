@@ -38,8 +38,14 @@ kubectl create -f deployement-demo.yaml
 kubectl create deployement --image=nginx nginx
 
 astuce:
+
 kubectl run nginx --image=nginx --dry-run=client -o yaml > pod-demo.yml
 kubectl create deployment --image=nginx nginx --dry-run=client -o yaml > deployment-demo.yml
+
+update Objects
+kubectl edit deployment nginx
+kubectl scale deployement nginx --replicas=5
+kubectl set image deployement nginx nginx=nginx:1.18
 
 ```
 
@@ -53,5 +59,21 @@ kubectl get pods
 ```
 kubectl delete deployement nginx-deployement
 ```
+
+
+### Mise à jour et retour en arriere
+
+il existe deux stratégies de deploiement 
+* recreate: kill tout les pods et recriee d'autres de la nouvelle version (DOWN - indisponibilité de l'application)
+* rolling update: remplace les pods un par un.
+
+```
+kubectl rollout status deployement/nginx-deployment
+kubectl rollout history deployment/nginx-deployement
+kubectl rollout undo deployement/nginx-deployement   # pour le retour en arriere
+```
+
+
+
 
 Next: [Namespace](../objects/namespace.md)

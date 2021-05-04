@@ -50,7 +50,7 @@ spec:
       port: 80
   selector:
     name: myapp
-    type: frontend
+    type: backend
 ```
 
 ```
