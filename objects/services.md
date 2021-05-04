@@ -15,6 +15,7 @@ metadata:
 spec:
   selector:
     app: frontend
+  type: [NodePort]
   ports:
   ...
 ```
@@ -23,7 +24,7 @@ spec:
 * **ClusterIP**: le service crée une adresse IP virtuelle à l'intérieur du cluster pour permettre la communication entre différents services tels qu'un ensemble de serveurs frontaux à un ensemble de serveurs principaux.
 * **NodePort**: le service rend un POD interne accessible sur un port du nœud [30000-32767]
 
-![](../images/service-Nodeportupdated.png)
+![](../images/Screenshot_20190722_110641.png)
 * **Loadbalancer** : il fournit un équilibreur de charge pour notre service dans les fournisseurs de cloud pris en charge.
 ![](../images/service-lbupdated.png)
 
