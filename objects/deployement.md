@@ -54,4 +54,4 @@ kubectl get pods
 kubectl delete deployement nginx-deployement
 ```
 
-Next: [Deployment](../objects/namespace.md)
+Next: [Namespace](../objects/namespace.md)
