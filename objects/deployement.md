@@ -1,7 +1,9 @@
 ## Deployement
 Un Deployment (déploiement en français) fournit des mises à jour déclaratives pour Pods et ReplicaSets.
 
-Vous décrivez un état désiré dans un déploiement et le controlleur déploiement change l'état réel à l'état souhaité à un rythme contrôlé. Vous pouvez définir des Deployments pour créer de nouveaux ReplicaSets, ou pour supprimer des déploiements existants et adopter toutes leurs ressources avec de nouveaux déploiements.
+** Vous décrivez un état désiré dans un déploiement et le controlleur déploiement change l'état réel à l'état souhaité à un rythme contrôlé (progressivement). 
+** Vous pouvez définir des Deployments pour créer de nouveaux ReplicaSets, ou pour supprimer des déploiements existants et adopter toutes leurs ressources avec de nouveaux déploiements.
+** Premet le retour en arriere ROLLINBACK
 
 ## deployement-demo.yaml
 
@@ -30,21 +32,24 @@ spec:
 ```
 
 ```
-kubectl create -f replicatset-demo.yaml
+kubectl create -f deployement-demo.yaml
+kubectl create deployement --image=nginx nginx
+
+astuce:
+kubectl run nginx --image=nginx --dry-run=client -o yaml > pod-demo.yml
+kubectl create deployment --image=nginx nginx --dry-run=client -o yaml > deployment-demo.yml
+
 ```
 
 ```
-kubectl get rs
-kubectl describe rs/frontend
+kubectl get deployement
+kubectl describe deployement nginx-deployement
+kubectl get rs # creation automatique de rs
 kubectl get pods
 ```
 
 ```
-kubectl replace -f replicatset-demo.yaml
-kubectl scale --replicas=5 -f replicatset-demo.yaml
-kubectl scale --replicas=6 replicatset frontend
-
-kubectl delete replicaset frontend
+kubectl delete deployement nginx-deployement
 ```
 
 Next: [Deployment](../objects/namespace.md)
