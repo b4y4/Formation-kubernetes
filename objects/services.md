@@ -15,7 +15,6 @@ metadata:
 spec:
   selector:
     app: frontend
-    department: engineering
   ports:
   ...
 ```
