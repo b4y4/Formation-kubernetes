@@ -26,7 +26,7 @@ spec:
 
 ![](../images/Screenshot_20190722_110641.png)
 * **Loadbalancer** : il fournit un équilibreur de charge pour notre service dans les fournisseurs de cloud pris en charge.
-![](../images/service-lbupdated.png)
+![](../images/multiple-nodes.png)
 
 
 
