@@ -113,4 +113,4 @@ metadata:
 ```
 
 
-Next: [ReplicatSets](../objects/service.md)
+Next: [ReplicatSets](../objects/configApp.md)

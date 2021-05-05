@@ -1,117 +1,23 @@
-## Service
-* Une manière abstraite d'exposer une application s'exécutant sur un ensemble de Pods en tant que service réseau.
-* Un service identifie ses pods membres à l'aide d'un sélecteur. Pour qu'un pod soit membre du service, il doit comporter tous les libellés spécifiés dans le sélecteur.
+## ConfigMap
+* Les ConfigMaps sont utilisés pour transmettre les données de configuration sous forme de paires clé/valeur dans kubernetes, et les injectez dans les pods
+* lex clé/valeur sont disponibles en tant que variables d'envirennement pour l'application hébergée à l'interieur du conteneur
+------------------------------------------------------
+```
+Methode 1
 
-![](../images/service.png)
+kubectl create configmap config_name \
+	--from-literal=APP_VERION=1 \
+	--from-literal=APPP_ENV=prod
+```
+
+```
+Methode 2
+kubectl create configmap config_name \		|       
+	--from-file=app_config.properties	|
+```
 
 ```yaml
 ---
-apiVersion: v1
-kind: Pod
-metadata:
-  name: my-nginx
-  labels:
-    app: myapp
-    type: frontend
-spec:
-  containers:
-    - name: nginx-container
-      image: nginx
-  ...
-```
-
-
-
-
-```yaml
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: my-service
-spec:
-  selector:
-    type: frontend
-  ...
-```
-
-### types de services:
-* **ClusterIP**: le service crée une adresse IP virtuelle à l'intérieur du cluster pour permettre la communication entre différents services tels qu'un ensemble de serveurs frontaux à un ensemble de serveurs principaux.
-```yaml
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: back-end
-spec:
-  type: ClusterIP
-  ports:
-    - targetPort: 80
-      port: 80
-  selector:
-    name: myapp
-    type: backend
-```
 
 ```
-kubectl create -f service-demo.yaml
-```
-
-* **NodePort**: le service rend un POD interne accessible sur un port du nœud [30000-32767]
-
-![](../images/Screenshot_20190722_110641.png)
-
-```yaml
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: myapp-service
-spec:
-  type: NodePort
-  ports:
-    - targetPort: 80
-      port: 80
-      nodePort: 30080
-  selector:
-    name: myapp
-    type: frontend
-```
-
-```
-kubectl create -f service-demo.yaml
-```
-
-* **Loadbalancer** : il fournit un équilibreur de charge pour notre service dans les fournisseurs de cloud pris en charge.
-
-![](../images/multiple-nodes.png)
-
-```yaml
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: myapp-service
-spec:
-  type: LoadBalancer
-  ports:
-    - targetPort: 80
-      port: 80
-      nodeport: 300080
-  selector:
-    name: myapp
-    type: frontend
-```
-```
-kubectl create -f service-demo.yaml
-```
-
-```yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: dev
-```
-
-
 Next: [ReplicatSets](../objects/service.md)
