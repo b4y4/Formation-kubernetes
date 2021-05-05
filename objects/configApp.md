@@ -10,11 +10,11 @@ kubectl create configmap config_name \
 	--from-literal=APPP_ENV=prod
 ```
 
-```
+```						|
 Methode 2
 kubectl create configmap config_name \		|       
 	--from-file=app_config.properties	|
-```
+```						|
 
 ```yaml
 ---

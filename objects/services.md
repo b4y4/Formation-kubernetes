@@ -113,4 +113,4 @@ metadata:
 ```
 
 
-Next: [ReplicatSets](../objects/configApp.md)
+Next: [ConfigMaps](../objects/configApp.md)
