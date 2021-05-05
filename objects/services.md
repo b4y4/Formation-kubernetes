@@ -97,7 +97,6 @@ spec:
   ports:
     - targetPort: 80
       port: 80
-      nodeport: 300080
   selector:
     name: myapp
     type: frontend
