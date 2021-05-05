@@ -23,7 +23,36 @@ kubectl create configmap config_name \
 ```						
 
 ```yaml
----
+Methode 3
 
+apiVerion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  APP_VERSION: 1
+  APP_ENV: prod
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: 
+  labels:
+    name: 
+spec:
+  containers:
+  - name: 
+    image:
+    ports:
+      - conatnerPort: 8080
+    envFrom:
+      - configMapRef:
+          name: app-config
+
+```
+```
+kubectl create -f configmaps-demo.yaml
+kubectl create -f pod-demo.yaml
 ```
 Next: [Secret](../objects/secret.md)
