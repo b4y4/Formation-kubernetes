@@ -22,7 +22,7 @@ spec:
   template:
     metadata:
       labels:
-        tier: frontend
+        type: front-end
     spec:
       containers:
       - name: php-redis
