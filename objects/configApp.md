@@ -14,8 +14,8 @@ kubectl create configmap config_name \
 Methode 2
 ------
 cat app_config.properties
-> APP_VERSION=1
-> APP_ENV=prod
+APP_VERSION=1
+APP_ENV=prod
 
 
 kubectl create configmap config_name \		       
