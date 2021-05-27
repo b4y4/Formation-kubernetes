@@ -1,117 +1,120 @@
-## Service
-* Une manière abstraite d'exposer une application s'exécutant sur un ensemble de Pods en tant que service réseau.
-* Un service identifie ses pods membres à l'aide d'un sélecteur. Pour qu'un pod soit membre du service, il doit comporter tous les libellés spécifiés dans le sélecteur.
+## ConfigMaps
+* Les ConfigMaps sont utilisés pour transmettre les données de configuration sous forme de paires clé/valeur dans kubernetes, et les injectez dans les pods
+* les clé/valeur sont disponibles en tant que variables d'envirennement pour l'application hébergée à l'interieur du conteneur
+------------------------------------------------------
+``` 
+Methode 1
+------
+kubectl create configmap config_name \ 
+	--from-literal=APP_VERION=1 \ 
+	--from-literal=APP_ENV=prod 
+```
 
-![](../images/service.png)
+```						
+Methode 2
+------
+cat app_config.properties
+APP_VERSION=1
+APP_ENV=prod
+
+
+kubectl create configmap config_name \		       
+	--from-file=app_config.properties	
+```						
 
 ```yaml
+Methode 3
+
+apiVerion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  APP_VERSION: 1
+  APP_ENV: prod
+
 ---
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-nginx
-  labels:
-    app: myapp
-    type: frontend
+  name: pod-configmap-demo
+  labels: 
+    name: pod-configmap-demo
 spec:
   containers:
-    - name: nginx-container
-      image: nginx
-  ...
+  - name: pod-demo 
+    image: busybox
+    ports:
+      - conatnerPort: 8080
+    envFrom:
+      - configMapRef:
+          name: app-config
+
+```
+```
+kubectl create -f configmaps-demo.yaml
+kubectl create -f pod-demo.yaml
+```
+
+## Secret
+* Les object Secret permettent de stocker et de gérer des informations sensibles, telles que les mots de pass, les tokens ou le clés SSH
+* l'objet Secret est similaire à Configmaps, sauf qu'il est stockés dans un format hashé (base64)
+-------------------------------------------
+```
+kubectl create secret generic \
+	app-secret --from-literal=DB_HOST=mysql \
+		   --from-literal=DB_USER=Admin \
+		   --from-literal=DB-PASS=P@$$w0rd
+```
+
+```
+Methode 2
+------
+cat secret
+> DB_HOST=mysql
+> DB_USER=Admin
+> DB_PASS=P@$$w0rd
+
+
+kubectl create secret generic \
+        --from-file=secret
 ```
 
 
-
-
 ```yaml
+Methode 3
+
+apiVerion: v1
+kind: Secret
+metadata:
+  name: app-secret
+data:
+  DB_HOST: bXlzcWw=           # il faut les convertir en base64 avant de les mettre dans le manifest Secret
+  DB_USER: YWRtaW4=
+  DB_PASS: UEA0MjU2MHcwcmQ=
+
 ---
 apiVersion: v1
-kind: Service
+kind: Pod
 metadata:
-  name: my-service
+  name: pod-secret-demo
+  labels:
+    name: pod-secret-demo
 spec:
-  selector:
-    type: frontend
-  ...
-```
-
-### types de services:
-* **ClusterIP**: le service crée une adresse IP virtuelle à l'intérieur du cluster pour permettre la communication entre différents services tels qu'un ensemble de serveurs frontaux à un ensemble de serveurs principaux.
-```yaml
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: back-end
-spec:
-  type: ClusterIP
-  ports:
-    - targetPort: 80
-      port: 80
-  selector:
-    name: myapp
-    type: backend
-```
+  containers:
+  - name: pod-secret-demo
+    image: busybox
+    ports:
+      - conatnerPort: 8080
+    envFrom:
+      - secretRef:
+          name: app-config
+````
 
 ```
-kubectl create -f service-demo.yaml
-```
-
-* **NodePort**: le service rend un POD interne accessible sur un port du nœud [30000-32767]
-
-![](../images/Screenshot_20190722_110641.png)
-
-```yaml
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: myapp-service
-spec:
-  type: NodePort
-  ports:
-    - targetPort: 80
-      port: 80
-      nodePort: 30080
-  selector:
-    name: myapp
-    type: frontend
-```
-
-```
-kubectl create -f service-demo.yaml
-```
-
-* **Loadbalancer** : il fournit un équilibreur de charge pour notre service dans les fournisseurs de cloud pris en charge.
-
-![](../images/multiple-nodes.png)
-
-```yaml
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: myapp-service
-spec:
-  type: LoadBalancer
-  ports:
-    - targetPort: 80
-      port: 80
-      nodeport: 300080
-  selector:
-    name: myapp
-    type: frontend
-```
-```
-kubectl create -f service-demo.yaml
-```
-
-```yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: dev
+kubectl get secrets
+kubectl describe secrets
 ```
 
 
-Next: [ReplicatSets](../objects/service.md)
+Next: [Storage](../objects/storage.md)

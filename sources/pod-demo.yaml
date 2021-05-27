@@ -5,7 +5,7 @@ metadata:                       # Dictionnaire
   name: pod-demo
   labels:
     app: myapp
-    type: front-end
+    type: frontend
 spec:
   containers:                   # List/Array
     - name:  nginx-container    # 1er element
