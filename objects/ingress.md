@@ -10,9 +10,6 @@
 
 ** Ingress controller										
 
-|
-|-----------------------------------------------------------------------------------------|
-
 ```yaml						
 apiVersion: extensions/v1beta1						
 kind: Deployement			
@@ -47,7 +44,7 @@ spec:
 
  
 ```
-|---------------------------------------------------------------------------------------------|
+
 ```
 kubectl create -f configmaps-demo.yaml
 kubectl create -f pod-demo.yaml
