@@ -95,7 +95,7 @@ metadata:
 spec:
   type: LoadBalancer
   externalIPs:
-  - **<@ of aws LB>**
+  - LB_adress
   ports:
     - targetPort: 80
       port: 80
