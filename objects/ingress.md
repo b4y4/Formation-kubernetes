@@ -8,11 +8,15 @@
 ------------------------------------------------------
 
 
-** Ingress controller										|		```yaml
-```yaml												|		kind: ConfigMap
-apiVersion: extensions/v1beta1									|		apiVersion: v1
-kind: Deployement										|		metadata:
-metadata:											|		  name: nginx-configuration
+** Ingress controller										
+
+|
+|-----------------------------------------------------------------------------------------|
+
+```yaml						
+apiVersion: extensions/v1beta1						
+kind: Deployement			
+metadata:						
   name: nginx-ingress-controller
 spec:
   replicas: 1
@@ -43,6 +47,7 @@ spec:
 
  
 ```
+|---------------------------------------------------------------------------------------------|
 ```
 kubectl create -f configmaps-demo.yaml
 kubectl create -f pod-demo.yaml
