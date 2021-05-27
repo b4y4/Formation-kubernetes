@@ -117,4 +117,4 @@ kubectl describe secrets
 ```
 
 
-Next: [Storage](../objects/storage.md)
+Next: [Ingress](../objects/ingress.md)
