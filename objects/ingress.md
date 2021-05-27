@@ -8,7 +8,30 @@
 ------------------------------------------------------
 
 
-``` 
+** Ingress controller
+```yaml
+apiVersion: extensions/v1beta1
+kind: Deployement
+metadata:
+  name: nginx-ingress-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: nginx-ingress
+  template:
+    matadata:
+      labels:
+        name: nginx-ingress
+    spec:
+      containers:
+        - name: nginx-ingress-controller
+          image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.21.0
+      args:
+        - /nginx-ingress-controller
+
+
+ 
 ```
 ```
 kubectl create -f configmaps-demo.yaml
