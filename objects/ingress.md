@@ -8,7 +8,7 @@
 ------------------------------------------------------
 
 
-** Ingress controller										
+**Ingress controller										
 
 ```yaml						
 apiVersion: extensions/v1beta1						
@@ -40,9 +40,6 @@ spec:
 	  valueFrom:
 	    fieldRef:
 	      fieldPath: metadata.namespace
-
-
- 
 ```
 
 ```
