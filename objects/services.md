@@ -95,7 +95,7 @@ metadata:
 spec:
   type: LoadBalancer
   externalIPs:
-  - LB_adress
+  - LB_address
   ports:
     - targetPort: 80
       port: 80
