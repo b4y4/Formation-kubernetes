@@ -94,6 +94,8 @@ metadata:
   name: myapp-service
 spec:
   type: LoadBalancer
+  externalIPs:
+  - **<@ of aws LB>**
   ports:
     - targetPort: 80
       port: 80
