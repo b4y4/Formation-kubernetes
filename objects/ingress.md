@@ -8,7 +8,7 @@
 ------------------------------------------------------
 
 
-**Ingress controller										
+#### Ingress controller										
 
 ```yaml						
 apiVersion: extensions/v1beta1						
