@@ -52,7 +52,30 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: nginx-configuration
+data:
+  "err-log-path": /var/log/ 
 ```
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-ingress
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: 80
+    name: http
+  - port: 443
+    targetPort: 443
+    name: https
+  selector:
+    name: nginx-ingress
+
+```
+
+
 
 ```
 kubectl create -f configmaps-demo.yaml
