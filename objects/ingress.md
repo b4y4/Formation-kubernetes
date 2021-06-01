@@ -8,10 +8,7 @@
 ------------------------------------------------------
 
 
-** Ingress controller										
-
-|
-|-----------------------------------------------------------------------------------------|
+#### Ingress controller										
 
 ```yaml						
 apiVersion: extensions/v1beta1						
@@ -37,17 +34,26 @@ spec:
       env:
         - name: POD_NAME
           valueFrom:
-            fieldRef:
-              fieldPath: metadata.name
-        - name: POD_NAMESPACE
+	    fieldRef:
+	      fieldPath: metadata.name
+	- name: POD_NAMESPACE
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-
-
- 
+      ports:
+        - name: http
+          containerPort: 80
+        - name: https
+          containerPort: 443
 ```
-|---------------------------------------------------------------------------------------------|
+
+```yaml
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: nginx-configuration
+```
+
 ```
 kubectl create -f configmaps-demo.yaml
 kubectl create -f pod-demo.yaml
