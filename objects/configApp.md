@@ -2,7 +2,7 @@
 * Les ConfigMaps sont utilisés pour transmettre les données de configuration sous forme de paires clé/valeur dans kubernetes, et les injectez dans les pods
 * les clé/valeur sont disponibles en tant que variables d'envirennement pour l'application hébergée à l'interieur du conteneur
 ------------------------------------------------------
-```shell
+```sh
 Methode 1
 ------
 kubectl create configmap config_name \ 
@@ -10,7 +10,7 @@ kubectl create configmap config_name \
 	--from-literal=APP_ENV=prod 
 ```
 
-```shell				
+```sh				
 Methode 2
 ------
 cat app_config.properties
