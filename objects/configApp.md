@@ -71,7 +71,7 @@ kubectl create secret generic \
 
 Methode 2
 ------
-```
+```console
 cat secret
 > DB_HOST=mysql
 > DB_USER=Admin
