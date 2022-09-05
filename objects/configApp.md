@@ -23,8 +23,9 @@ kubectl create configmap config_name \
 	--from-file=app_config.properties	
 ```						
 
-```yaml
 Methode 3
+---
+```yaml
 
 apiVerion: v1
 kind: ConfigMap
@@ -52,7 +53,7 @@ spec:
           name: app-config
 
 ```
-```
+```console
 kubectl create -f configmaps-demo.yaml
 kubectl create -f pod-demo.yaml
 ```
@@ -61,16 +62,16 @@ kubectl create -f pod-demo.yaml
 * Les object Secret permettent de stocker et de gérer des informations sensibles, telles que les mots de pass, les tokens ou le clés SSH
 * l'objet Secret est similaire à Configmaps, sauf qu'il est stockés dans un format hashé (base64)
 -------------------------------------------
-```
+```console
 kubectl create secret generic \
 	app-secret --from-literal=DB_HOST=mysql \
 		   --from-literal=DB_USER=Admin \
 		   --from-literal=DB-PASS=P@$$w0rd
 ```
 
-```
 Methode 2
 ------
+```
 cat secret
 > DB_HOST=mysql
 > DB_USER=Admin
@@ -81,9 +82,9 @@ kubectl create secret generic \
         --from-file=secret
 ```
 
-
-```yaml
 Methode 3
+---
+```yaml
 
 apiVerion: v1
 kind: Secret
@@ -112,7 +113,7 @@ spec:
           name: app-config
 ````
 
-```
+```console
 kubectl get secrets
 kubectl describe secrets
 ```
