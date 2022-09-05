@@ -5,7 +5,7 @@
 
 Methode 1
 ------
-```console
+```bash
 kubectl create configmap config_name \ 
 	--from-literal=APP_VERION=1 \ 
 	--from-literal=APP_ENV=prod 
