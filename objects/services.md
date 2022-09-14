@@ -53,7 +53,7 @@ spec:
     type: backend
 ```
 
-```
+```console
 kubectl create -f service-demo.yaml
 ```
 
@@ -78,7 +78,7 @@ spec:
     type: frontend
 ```
 
-```
+```console
 kubectl create -f service-demo.yaml
 ```
 
@@ -103,7 +103,7 @@ spec:
     name: myapp
     type: frontend
 ```
-```
+```console
 kubectl create -f service-demo.yaml
 ```
 
@@ -116,3 +116,5 @@ metadata:
 
 
 Next: [ConfigMaps](../objects/configApp.md)
+
+[Useful commands](../useful.md)
