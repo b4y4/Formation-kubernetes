@@ -32,3 +32,14 @@ Output
 [+]shutdown ok
 readyz check passed
 ```
+## Get a simple diagnostic for the cluster
+```console
+kubectl get componentstatuses
+```
+Output
+```console
+NAME                  STATUS    MESSAGE             ERROR
+scheduler             Healthy   ok
+controller-manager    Healthy   ok
+etcd-0                Healthy   {"health": "true"}
+```
