@@ -26,7 +26,7 @@ spec:
       image: nginx
 ```
 
-```
+```console
 kubectl create -f pod.yml
 kubectl create -f pod.yml --namespace=dev
 ```
@@ -38,7 +38,7 @@ metadata:
   name: dev
 ```
 
-```
+```console
 kubectl create -f namespace.yml
 kubectl create namespace dev
 kubectl get pods --namespace=dev
@@ -64,8 +64,10 @@ spec:
     limits.memory: 10Gi
 ```
 
-```
+```console
 kubectl create -f compute-quota.yml
 ```
 
 Next: [Service](../objects/services.md)
+
+[Useful commands](../useful.md)
