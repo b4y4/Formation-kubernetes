@@ -46,4 +46,5 @@ Kubernetes est compatible avec plusieurs environnements d'exécution de conteneu
 ![](../images/k-architecture.png)
 
 Next: [Objets kubernetes](../objects/objects_k8s.md)
-[Objets kubernetes](../useful.md)
+
+[Useful command](../useful.md)
