@@ -120,3 +120,5 @@ kubectl describe secrets
 
 
 Next: [Ingress](../objects/ingress.md)
+
+[Useful commands](../useful.md)
