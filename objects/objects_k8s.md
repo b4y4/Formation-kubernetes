@@ -10,7 +10,7 @@
 
 
 
-```
+```console
 kubectl run nginx --image nginx
 
 kubectl get pods [-o wide|yaml|json]
@@ -50,12 +50,12 @@ spec:
       image: nginx
 ```
 
-```
+```console
 kubectl create -f pod.yaml
 kubectl apply -f pod.yaml
 ```
 
-```
+```console
 kubectl describe pod pod-demo
 ```
 
