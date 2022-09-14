@@ -43,3 +43,15 @@ scheduler             Healthy   ok
 controller-manager    Healthy   ok
 etcd-0                Healthy   {"health": "true"}
 ```
+## Listing Kubernetes Worker Nodes
+```console
+kubectl get nodes
+```
+Output
+```console
+NAME        STATUS        AGE   VERSION
+kubernetes  Ready,master  45d   v1.12.1
+node-1      Ready         45d   v1.12.1
+node-2      Ready         45d   v1.12.1
+node-3      Ready         45d   v1.12.1
+```
