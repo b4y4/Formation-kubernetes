@@ -77,16 +77,18 @@ spec:
 
 
 
-```
+```console
 kubectl create -f configmaps-demo.yaml
 kubectl create -f pod-demo.yaml
 ```
 
 
-```
+```console
 kubectl get secrets
 kubectl describe secrets
 ```
 
 
 Next: [Storage](../objects/storage.md)
+
+[Useful commands](../useful.md)
