@@ -33,30 +33,32 @@ spec:
         - containerPort: 80
 ```
 
-```
+```console
 kubectl create -f deployement-demo.yaml
 kubectl create deployement --image=nginx nginx
+```
 
 astuce:
-
+```console
 kubectl run nginx --image=nginx --dry-run=client -o yaml > pod-demo.yml
 kubectl create deployment --image=nginx nginx --dry-run=client -o yaml > deployment-demo.yml
-
+```
 update Objects
+```console
 kubectl edit deployment nginx
 kubectl scale deployement nginx --replicas=5
 kubectl set image deployement nginx nginx=nginx:1.18
 
 ```
 
-```
+```console
 kubectl get deployement
 kubectl describe deployement nginx-deployement
 kubectl get rs # creation automatique de rs
 kubectl get pods
 ```
 
-```
+```console
 kubectl delete deployement nginx-deployement
 ```
 
@@ -67,7 +69,7 @@ il existe deux stratégies de deploiement
 * recreate: kill tout les pods et recriee d'autres de la nouvelle version (DOWN - indisponibilité de l'application)
 * rolling update: remplace les pods un par un.
 
-```
+```console
 kubectl rollout status deployement/nginx-deployment
 kubectl rollout history deployment/nginx-deployement
 kubectl rollout undo deployement/nginx-deployement   # pour le retour en arriere
@@ -77,3 +79,5 @@ kubectl rollout undo deployement/nginx-deployement   # pour le retour en arriere
 
 
 Next: [Namespace](../objects/namespace.md)
+
+[Useful commands](../useful.md)
