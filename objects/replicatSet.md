@@ -30,17 +30,17 @@ spec:
 
 ```
 
-```
+```console
 kubectl create -f replicatset-demo.yaml
 ```
 
-```
+```console
 kubectl get rs
 kubectl describe rs/frontend
 kubectl get pods
 ```
 
-```
+```console
 kubectl replace -f replicatset-demo.yaml
 kubectl scale --replicas=5 -f replicatset-demo.yaml
 kubectl scale --replicas=6 replicatset frontend
