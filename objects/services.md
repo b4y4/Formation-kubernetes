@@ -3,7 +3,7 @@
 * Une manière abstraite d'exposer une application s'exécutant sur un ensemble de Pods en tant que service réseau.
 * Un service identifie ses pods membres à l'aide d'un sélecteur. Pour qu'un pod soit membre du service, il doit comporter tous les libellés spécifiés dans le sélecteur.
 
-![services](../images/service.png)
+<center><img src="../images/service.png" alt="arch" width="500" height="300"/></center>
 
 ```yaml
 ---

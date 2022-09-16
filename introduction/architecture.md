@@ -8,7 +8,8 @@ Kubernetes est un système open source permettant de gérer des applications con
 gestion, planification, ordonnencement et controle des workers nodes.
 * **Workers nodes**
 un ensemble de noeuds qui peuvent être virtuels ou physiques qui hébergent des applications sous forme de conteneurs.
-![cluster archi](../images/arch.png)
+
+<center><img src="../images/arch.png" alt="arch" width="500" height="500"/></center>
 
 ### Control plan
 
@@ -49,8 +50,9 @@ kube-proxy maintient les règles réseau sur les nœuds. Ces règles réseau per
 L'environnement d'exécution de conteneurs est le logiciel responsable de l'exécution des conteneurs.
 Kubernetes est compatible avec plusieurs environnements d'exécution de conteneur: Docker, containerd, cri-o, rktlet ainsi que toute implémentation de Kubernetes CRI (Container Runtime Interface).
 
-![K8s Archi](../images/k-architecture.png)
+<center><img src="../images/k-architecture.png" alt="arch" width="500" height="500"/></center>
 
+---
 > Next: [Context](./context.md)
 
 > [cheat sheet](../useful.md)

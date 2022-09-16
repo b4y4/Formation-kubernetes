@@ -6,9 +6,10 @@
 * par de defaut le namespace est `default`
 * si on veux lancer la commande `kubectl` pour un namespace spécifique on rajoute le flag `--namespace` ou `--all-namespace` pour tout les namespace dans le cluster
 
-![namespace examples](../images/namespace.png)
+<center><img src="../images/namespace.png" alt="arch" width="400" height="200"/></center>
 
-chemin d'access ''database-sql.dev.svc.cluster.local'' -> pod-name.namespace.service.domain
+
+chemin d'access `database-sql.dev.svc.cluster.local` -> `pod-name.namespace.service.domain`
 
 ```yaml
 ---
