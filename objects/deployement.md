@@ -79,6 +79,6 @@ kubectl rollout history deployment/nginx-deployement
 kubectl rollout undo deployement/nginx-deployement   # pour le retour en arriere
 ```
 
-> Next: [Namespace](../objects/namespace.md)
+[Service](../objects/services.md)
 
 > [cheat sheet](../useful.md)
