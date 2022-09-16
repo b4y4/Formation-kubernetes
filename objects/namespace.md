@@ -68,6 +68,6 @@ spec:
 kubectl create -f compute-quota.yml
 ```
 
-> Next: [Service](../objects/pods.md)
+> Next: [Pods](../objects/pods.md)
 
 > [cheat sheet](../useful.md)
