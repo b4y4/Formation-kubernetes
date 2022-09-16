@@ -1,11 +1,14 @@
 ## Check the K8S cluster health
-```console
+
+```bash
 curl -k 'https://localhost:6443/readyz?verbose&exclude=etcd'
 or
 kubectl get --raw='/readyz?verbose'
 ```
+
 Output
-```console
+
+```bash
 [+]ping ok
 [+]log ok
 [+]etcd ok
@@ -32,45 +35,57 @@ Output
 [+]shutdown ok
 readyz check passed
 ```
+
 ## Get a simple diagnostic for the cluster
-```console
+
+```bash
 kubectl get componentstatuses
 ```
+
 Output
-```console
+
+```bash
 NAME                  STATUS    MESSAGE             ERROR
 scheduler             Healthy   ok
 controller-manager    Healthy   ok
 etcd-0                Healthy   {"health": "true"}
 ```
+
 ## Listing Kubernetes Worker Nodes
-```console
+
+```bash
 kubectl get nodes
 ```
+
 Output
-```console
+
+```bash
 NAME        STATUS        AGE   VERSION
 kubernetes  Ready,master  45d   v1.12.1
 node-1      Ready         45d   v1.12.1
 node-2      Ready         45d   v1.12.1
 node-3      Ready         45d   v1.12.1
 ```
+
 ## Get more information about a node
-```console
+
+```bash
 kubectl describe nodes node-1
 ```
+
 Output
-```console
+
+```bash
 Name:     node-1
 Role:
 Labels:   beta.kubernetes.io/arch=arm     # running an ARM processor
           beta.kubernetes.io/os=linux     # running the Linux OS
-          kubernetes.io/hostname=node-1 
-          
+          kubernetes.io/hostname=node-1
+
 Conditions:
   Type            Status      LastHeartbeatTime       Reason                      Message
   ----            ------      -----------------       ------                      -------
-  OutOfDisk       False       Sun, 05 Feb 2017…       KubeletHasSufficientDisk    kubelet… 
+  OutOfDisk       False       Sun, 05 Feb 2017…       KubeletHasSufficientDisk    kubelet…
   MemoryPressure  False       Sun, 05 Feb 2017…       KubeletHasSufficientMemory  kubelet…
   DiskPressure    False       Sun, 05 Feb 2017…       KubeletHasNoDiskPressure    kubelet…
   Ready           True        Sun, 05 Feb 2017…       KubeletReady                kubelet…
@@ -85,7 +100,7 @@ Allocatable:
   cpu:                            4
   memory:                         882636Ki
   pods:                           110
-  
+
 System Info:
   Machine ID:                     9122895d0d494e3f97dda1e8f969c85c
   System UUID:                    A7DBF2CE-DB1E-E34A-969A-3355C36A2149

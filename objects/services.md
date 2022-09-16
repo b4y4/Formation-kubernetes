@@ -1,8 +1,9 @@
-## Service
+# Service
+
 * Une manière abstraite d'exposer une application s'exécutant sur un ensemble de Pods en tant que service réseau.
 * Un service identifie ses pods membres à l'aide d'un sélecteur. Pour qu'un pod soit membre du service, il doit comporter tous les libellés spécifiés dans le sélecteur.
 
-![](../images/service.png)
+![services](../images/service.png)
 
 ```yaml
 ---
@@ -20,9 +21,6 @@ spec:
   ...
 ```
 
-
-
-
 ```yaml
 ---
 apiVersion: v1
@@ -32,11 +30,13 @@ metadata:
 spec:
   selector:
     type: frontend
-  ...
 ```
 
-### types de services:
-* **ClusterIP**: le service crée une adresse IP virtuelle à l'intérieur du cluster pour permettre la communication entre différents services tels qu'un ensemble de serveurs frontaux à un ensemble de serveurs principaux.
+## Types de services
+
+* **ClusterIP**
+le service crée une adresse IP virtuelle à l'intérieur du cluster pour permettre la communication entre différents services tels qu'un ensemble de serveurs frontaux à un ensemble de serveurs principaux.
+
 ```yaml
 ---
 apiVersion: v1
@@ -53,13 +53,14 @@ spec:
     type: backend
 ```
 
-```console
+```bash
 kubectl create -f service-demo.yaml
 ```
 
-* **NodePort**: le service rend un POD interne accessible sur un port du nœud [30000-32767]
+* **NodePort**
+le service rend un POD interne accessible sur un port du nœud [30000-32767]
 
-![](../images/Screenshot_20190722_110641.png)
+![nodeIP](../images/Screenshot_20190722_110641.png)
 
 ```yaml
 ---
@@ -78,13 +79,13 @@ spec:
     type: frontend
 ```
 
-```console
+```bash
 kubectl create -f service-demo.yaml
 ```
 
 * **Loadbalancer** : il fournit un équilibreur de charge pour notre service dans les fournisseurs de cloud pris en charge.
 
-![](../images/multiple-nodes.png)
+![LB](../images/multiple-nodes.png)
 
 ```yaml
 ---
@@ -103,7 +104,8 @@ spec:
     name: myapp
     type: frontend
 ```
-```console
+
+```bash
 kubectl create -f service-demo.yaml
 ```
 
@@ -114,7 +116,5 @@ metadata:
   name: dev
 ```
 
-
-Next: [ConfigMaps](../objects/configApp.md)
-
-[Useful commands](../useful.md)
+> Next: [ConfigMaps](../objects/configApp.md)
+> [Useful commands](../useful.md)
