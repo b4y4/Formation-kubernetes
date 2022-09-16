@@ -87,4 +87,4 @@ kubectl describe secrets
 ```
 
 > Next: [Storage](../objects/storage.md)
-> [Useful commands](../useful.md)
+> [cheat sheet](../useful.md)

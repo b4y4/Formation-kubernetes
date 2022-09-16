@@ -49,4 +49,4 @@ kubectl delete replicaset frontend
 ```
 
 > Next: [Deployment](../objects/deployement.md)
-> [Useful commands](../useful.md)
+> [cheat sheet](../useful.md)

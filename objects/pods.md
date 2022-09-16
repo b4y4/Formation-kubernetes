@@ -56,4 +56,4 @@ kubectl describe pod pod-demo
 ```
 
 > Next: [ReplicatSets](../objects/replicatSet.md)
-> [Useful commands](../useful.md)
+> [cheat sheet](../useful.md)
