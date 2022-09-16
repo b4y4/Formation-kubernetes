@@ -117,4 +117,4 @@ metadata:
 ```
 
 > Next: [ConfigMaps](../objects/configApp.md)
-> [Useful commands](../useful.md)
+> [cheat sheet](../useful.md)
