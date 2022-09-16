@@ -1,23 +1,19 @@
-## Pods 
+# Pods
+
 * Kubernetes ne deploie pas des conteneurs directement sur les nodes
 * les conteneurs sont encapsulées dans un object appelé pods.
 * Un pod est un groupe d'un ou de plusieurs conteneurs
 * Un pod est une instance unique d'une application
 * les conteneurs du mème pod partage le meme reseau
-
-
 ![Pods](../images/pod.jpeg)
 
-
-
-```console
+```bash
 kubectl run nginx --image nginx
 
 kubectl get pods [-o wide|yaml|json]
 ```
 
-## structure du fichier de manifeste YAML
-
+## Structure d'un manifeste YAML
 
 ```yaml
 ---
@@ -27,19 +23,17 @@ metadatas:
 
 
 spec:
-
-
-
-
 ```
 
-## Pod.yaml
+```bash
+> cat pod.yml
+```
 
 ```yaml
 ---
-apiVersion: v1			# String
-kind: Pod			# String		
-metadata:                       # Dictionnaire 
+apiVersion: v1                  # String
+kind: Pod                       # String
+metadata:                       # Dictionnaire
   name: pod-demo
   labels:
     app: myapp
@@ -50,15 +44,14 @@ spec:
       image: nginx
 ```
 
-```console
+```bash
 kubectl create -f pod.yaml
 kubectl apply -f pod.yaml
 ```
 
-```console
+```bash
 kubectl describe pod pod-demo
 ```
 
-Next: [ReplicatSets](../objects/replicatSet.md)
-
-[Useful commands](../useful.md)
+> Next: [ReplicatSets](../objects/replicatSet.md)
+> [Useful commands](../useful.md)
