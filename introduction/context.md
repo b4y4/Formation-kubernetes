@@ -40,6 +40,6 @@ kubectl describe <resource-name> <obj-name>
 
 
 > Next: [Namespace](../objects/namespace.md)
->
 
 > [cheat sheet](../useful.md)
+
