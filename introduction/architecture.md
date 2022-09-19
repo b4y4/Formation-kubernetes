@@ -11,7 +11,7 @@ un ensemble de noeuds qui peuvent être virtuels ou physiques qui hébergent des
 
 <center><img src="../images/arch.png" alt="arch" width="500" height="500"/></center>
 
-### Control plan
+### Control plane
 
 Il contient les composants Kubernetes qui **contrôlent** le cluster, chargés de surveiller et de gérer les workers nodes .
 
