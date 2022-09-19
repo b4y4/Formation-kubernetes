@@ -15,7 +15,7 @@ un ensemble de noeuds qui peuvent être virtuels ou physiques qui hébergent des
 
 Il contient les composants Kubernetes qui **contrôlent** le cluster, chargés de surveiller et de gérer les workers nodes .
 
-Le plan de contrôle est en contact permanent avec les workers nodes. Si le cluster est configuré pour qu'il fonctionne d'une certaine manière. Le plan de contrôle s'assure que cette configuration est respectée.
+Le plan de contrôle est en contact permanent avec les workers nodes. Si le cluster est configuré pour qu'il fonctionne d'une certaine manièr le plan de contrôle s'assure que cette configuration est respectée.
 
 * **kube-apiserver**
 Orcheste toutes les opérations au sein du cluster et expose une API RESTE pour interagir avec le cluster.
