@@ -19,10 +19,8 @@ Le plan de contrôle est en contact permanent avec les workers nodes. Si le clus
 
 * **kube-apiserver**
 Orcheste toutes les opérations au sein du cluster et expose une API RESTE pour interagir avec le cluster.
-
 * **kube-scheduler**
 Composant sur le master qui surveille les pods nouvellement créés qui ne sont pas assignés à un nœud et sélectionne un nœud sur lequel ils vont s'exécuter.
-
 * **kube-controller-manager**
 Composant du master qui exécute les contrôleurs.
 Logiquement, chaque contrôleur est un processus à part mais, pour réduire la complexité, les contrôleurs sont tous compilés dans un seul binaire et s'exécutent dans un seul processus.
@@ -37,6 +35,7 @@ Remplit les objets Endpoints (c'est-à-dire joint les Services et Pods).
 * **Service Account & Token Controllers**
 Créent des comptes par défaut et des jetons d'accès à l'API pour les nouveaux namespaces.
 * **etcd**
+une base de données clé-valeur qui comprend les données de configuration et les informations sur l'état du cluster. Distribuée et résistante aux pannes, la base de données etcd constitue la référence unique concernant cluster.
 « etcd » est une base de données clé-valeur qui comprend les données de configuration et les informations sur l'état du cluster. Distribuée et résistante aux pannes, la base de données etcd constitue la référence unique concernant cluster.
 
 ### Worker nodes
