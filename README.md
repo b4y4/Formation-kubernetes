@@ -1,6 +1,6 @@
 # Formation/Notes Kubernetes
 
-Project for learning Kubernetes
+Learning Kubernetes project
 ---
 
 ```bash
