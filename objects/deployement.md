@@ -1,6 +1,6 @@
 # Deployement
 
-Un Deployment (déploiement en français) fournit des mises à jour déclaratives pour Pods et ReplicaSets.
+Deployment fournit des mises à jour déclaratives pour Pods et ReplicaSets.
 
 * Vous décrivez un état désiré dans un déploiement et le controlleur déploiement change l'état réel à l'état souhaité à un rythme contrôlé (progressivement).
 * Vous pouvez définir des Deployments pour créer de nouveaux ReplicaSets, ou pour supprimer des déploiements existants et adopter toutes leurs ressources avec de nouveaux déploiements.
@@ -79,6 +79,6 @@ kubectl rollout history deployment/nginx-deployement
 kubectl rollout undo deployement/nginx-deployement   # pour le retour en arriere
 ```
 
-> [Service](../objects/services.md)
+> Next: [Service](../objects/services.md)
 
 > [cheat sheet](../useful.md)
