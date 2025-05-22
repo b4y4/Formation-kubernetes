@@ -55,6 +55,6 @@ kubectl apply -f pod.yaml
 kubectl describe pod pod-demo
 ```
 
-> Next: [ReplicatSets](../objects/replicatSet.md)
+> Next: [Namespace](./namespace.md)
 
 > [cheat sheet](../useful.md)
