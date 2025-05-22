@@ -39,7 +39,6 @@ kubectl describe <resource-name> <obj-name>
 ```
 
 
-> Next: [Namespace](../objects/namespace.md)
+> Next: [Pods](../objects/pods.md)
 
 > [cheat sheet](../useful.md)
-
